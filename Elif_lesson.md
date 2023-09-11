@@ -59,7 +59,7 @@ print("\033[31m" "Go away! You do not have an account
 here and if you try to log in again, you will be
 removed from the server.\033[0m")
 ```
-### Need an extra challenge? Try to create use "nesting" to ask multiple if statements for one particular user. For example, after they log in successfully, you could ask "How are you feeling today," and then provide an appropriate response depending on if they say good, or bad. Example of some nested if statements: 
+### Need an extra challenge? Try to use "nesting" to ask multiple if statements for ONE particular user. For example, after they log in successfully, you could ask "How are you feeling today,(name)?" and then provide an appropriate response depending on if they say good, or bad. Example of some nested if statements: 
 ```
 fan = input("So...you are a big rock climbing fan?")
 if fan == "yes":
