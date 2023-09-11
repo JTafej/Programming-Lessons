@@ -59,6 +59,25 @@ print("\033[31m" "Go away! You do not have an account
 here and if you try to log in again, you will be
 removed from the server.\033[0m")
 ```
+### Need an extra challenge? Try to create use "nesting" to ask multiple if statements for one particular user. For example, after they log in successfully, you could ask "How are you feeling today," and then provide an appropriate response depending on if they say good, or bad. Example of some nested if statements: 
+```
+fan = input("So...you are a big rock climbing fan?")
+if fan == "yes":
+  print("okay cool! But let's just check that")
+  style = input("What kind of climbing do you do? TR? Sport? Bouldering...?")
+  if style == "Trad":
+    print("Okay! A tough guy!")
+    protection = input("Do you prefer nuts or cams?")
+    if protection == "nuts":
+        print("Okay. We're done here. You are awesome.")
+    else:
+        print("HA! Cams are for the weak.")
+  else:
+    print("Ha! Pathetic! Trad is the only way to go...")
+else:
+  print("Thanks for not wasting my time. Goodbye.")
+```
+### Notice the extra indents after fan == yes. The program is asking more questions if the user says they like rock climbing. Try the program out for yourself. Notice which "else" statements go with which "if" statements. 
 
 
 
