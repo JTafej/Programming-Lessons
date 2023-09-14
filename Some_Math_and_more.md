@@ -73,7 +73,7 @@ else:
 
 
 
-## Below are a list of recent generations in the US. Your task is to create ask the user when they were born, and respond differently based on their age. Hint: you must use "elif" and "int" in your answer. 
+## Below is a list of recent generations in the US. Your task is to create ask the user when they were born, and respond differently based on their age. Hint: you must use "elif" and "int" in your answer. 
 
 
 #### Traditionalists	1925-1946
