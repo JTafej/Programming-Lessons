@@ -29,3 +29,36 @@ while exit = "yes":
   exit = input("Exit?: ")
 ```
 
+##### One of the most powerful ways to use a while use is with the True command. This will run until you tell the while loop to "break," which will end the while loop. Try running this program and notice the use of "counter." You will need to use a counter for your challenge today. 
+```
+print("can you guess the lyrics??\n Guess the lyrics. If you get them right, you can be cool\n")
+counter = 0
+while True:
+
+  guess = input("Never going to ____ you up \n Guess:")
+  
+ 
+  counter += 1
+  if guess == "give":
+    break
+  print("Try again!")
+print("Nice! You got it on attempt number", counter)
+
+```
+
+#### The challenge for today is to create a program that asks the user for an animal, and then says the sound that animal makes. For example: "what animal do you like?" if input = cow, output is "Cows go mooooo" Please use a while loop so you can ask a user if they want to keep playing the game. If they say no, make sure you stop the game. 
+*Add a counter to your program, and tell you user how many rounds they played after they exit.*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
