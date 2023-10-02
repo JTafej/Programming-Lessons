@@ -16,6 +16,24 @@ while True:
 print("The game is over, you've failed!")
 ```
 
+#### Now that we have learned a bit about these new terms, see if you can fix my code: 
+
+```
+print("Let's play chutes and ladders. Pick ladder or chute.")
+while True:
+  print("Do you want to go up the ladder or down the chute?")
+  direction = input("> ")
+  if direction == "chute"
+    print("Game over!")
+  break
+  elif direction == "ladder":
+    continue
+else:
+    print("Game over!")
+    exit 
+print("Thanks for playing!")
+```
+
 
 
 
