@@ -52,4 +52,4 @@ else:
 #### notice the new term "range." range counts from 0-9, and in this case will print numbers 0-1. Range is a function, like exit, so we must include paranthesis after. example: range(4)
 #### In the loop above "counter" is the variable. "i", "j", and "k" are commonly used by programmers as variables in for loops. 
 
-
+## Your challenge today is fairly simple: Please create 6 forloops at do something slightly different. If you feel up to a real challenge with for loops, rework the Rock Paper Scissors game to play 5 games total, and report the winner. 
