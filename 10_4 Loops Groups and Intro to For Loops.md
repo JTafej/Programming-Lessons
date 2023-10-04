@@ -53,8 +53,3 @@ else:
 #### In the loop above "counter" is the variable. "i", "j", and "k" are commonly used by programmers as variables in for loops. 
 
 
-### Your challenge for today is fairly straightforward: Create 6 for loops that each do something different. They should be simple, don't go overboard. 
-
-
-
-
