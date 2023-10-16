@@ -5,7 +5,9 @@
 
 ### For example, PyTorch is used for Machine learning and Neural Networks. 
 * "PyTorch is the largest machine learning library that optimizes tensor computations. It has rich APIs to perform tensor computations with strong GPU acceleration. It also helps to solve application issues related to neural networks."
-
+* What Library could I use for plotting numberical data?
+#
+#
 ### How do you use a library? It's not too complicated! You just have to "import" the library, and then call the function or module you want to use from the library. For example:
 #### This program will use the function randint from random to select a random integer between 1 and 100!
 ```
@@ -89,4 +91,4 @@ time.sleep(1)
 os.system("clear")
 ```
 
-### Okay, now it's time for the challenge of the day. 
+### Okay, now it's time for the challenge of the day. Take a program from the past, and use os.system("clear") to clean it up!
