@@ -91,4 +91,4 @@ time.sleep(1)
 os.system("clear")
 ```
 
-### Okay, now it's time for the challenge of the day. Take a program from the past, and use os.system("clear") to clean it up!
+### Okay, now it's time for the challenge of the day. Take a program from the past, and use os.system("clear") to clean it up! If you get finished early, read some more about libraries on the link I attached! 
