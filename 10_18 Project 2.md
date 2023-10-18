@@ -48,9 +48,14 @@ if roll < 5:
 else:
   print("You survived!")
 ```
-## Your job for project 2 is to create a role playing game that involves loops and rolling dice. Use the code above for inspiration. Look through all past assignments and your last project for inspiration. Use os.system("clear") to make your console look simple. You have learned a fair amount now, and can make a pretty fun adventure game. Due at the end of the day on Monday, 10/23
+## Your job for project 2 is to create a role playing game that involves loops and rolling dice. Use the code above for inspiration. Look through all past assignments and your last project for inspiration. You have learned a fair amount now, and can make a pretty fun adventure game. Due at the end of the day on Monday, 10/23
+* You should map out what you want your program to do before you start coding
+* Use os.system("clear") to make your console look simple.
+* Include at least one for loop in your program
+* Include a counter that tells the person how many level they made it to.
+* You can create multiple dice if you want to have a 1/2 probability, or something like 1/10, or 1/20. You'll need to call these variables something different.
 
-
+  
 
 
 
