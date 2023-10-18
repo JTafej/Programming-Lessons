@@ -34,7 +34,7 @@ def rollDice():
   return dice
 roll = rollDice()
 ```
-### Now, you have a variable called "roll" that is equal to the value of that particular roll. You can use that variable to give a specific response, like the following: 
+### Now you have a variable called "roll" that is equal to the value of that particular roll. You can use that variable to give a specific response, like the following: 
 
 ```
 def rollDice():
