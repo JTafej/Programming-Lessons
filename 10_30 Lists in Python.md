@@ -113,7 +113,7 @@ while True:
         print("Invalid choice. Please select 1, 2, 3, or 4.")
 ```
 
-### The project for today is to edit the following code. You should do a list of recommendations for something other than movies. Could be books, video games, songs, or something else. You must add a 4th choice for the user that will print the entire list in alhpabetical order.
+### The project for today is to edit the following code. You should do a list of recommendations for something other than movies. Could be books, video games, songs, or something else. You must add a 4th choice for the user that will print the entire list in alphabetical order.
 ```
 import random
 
