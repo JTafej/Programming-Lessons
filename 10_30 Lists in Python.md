@@ -43,7 +43,15 @@ del my_list[2]       # Removes the third element (30)
 my_list = [10, 20, 30, 40, 50]
 my_list.sort()  # Sorts the list in ascending order
 ```
-#### If your list is super long, you might not be able to simply count how long the list is. This code will determine the length of the list. 
+#### Sorting also works in alphabetical order. 
+```
+cars = ['Ford', 'BMW', 'Volvo']
+
+cars.sort()
+#This will put the cars in alphabetical order
+```
+#### If your list is super long, you might not be able to simply count how long the list is. This code will determine the length of the list.
+
 ```
 my_list = [10, 20, 30, 40, 50]
 length = len(my_list)  # Gets the length of the list
@@ -55,7 +63,7 @@ if 30 in my_list:
     print("30 is in the list")
 ```
 
-### Below is an example of code that will write a to-do list in python. We have learned about most (not all) of the code involved in this project. Take a minute to play with it and try to figure out what the different parts are doing. 
+### Below is an example of code that will write a to-do list in python. We have learned about most (not all) of the code involved in this project. Take a minute to play with it and try to figure out what the different parts are doing. With a partner, you will write down what this code will do on a piece of paper and turn it in to me. 
 
 ```
 # Initialize an empty to-do list
@@ -105,6 +113,42 @@ while True:
         print("Invalid choice. Please select 1, 2, 3, or 4.")
 ```
 
+### The project for today is to edit the following code. You should do a list of recommendations for something other than movies. Could be books, video games, songs, or something else. You must add a 4th choice for the user that will print the entire list in alhpabetical order.
+```
+import random
 
+# Create a list of favorite movies
+favorite_movies = ["The Shawshank Redemption", "Inception", "The Matrix", "Pulp Fiction", "Forrest Gump"]
+
+# Function to recommend a random movie
+def recommend_movie(movie_list):
+    if not movie_list:
+        return "Your movie list is empty. Add some favorite movies first!"
+    
+    random_movie = random.choice(movie_list)
+    return f"I recommend you watch: {random_movie}"
+
+# Main program loop
+while True:
+    print("\nOptions:")
+    print("1. Add a Favorite Movie")
+    print("2. Get a Movie Recommendation")
+    print("3. Quit")
+
+    choice = input("Enter your choice (1/2/3): ")
+
+    if choice == "1":
+        movie = input("Enter the title of your favorite movie: ")
+        favorite_movies.append(movie)
+        print(f"'{movie}' has been added to your list of favorite movies.")
+    elif choice == "2":
+        recommendation = recommend_movie(favorite_movies)
+        print(recommendation)
+    elif choice == "3":
+        print("Goodbye!")
+        break
+    else:
+        print("Invalid choice. Please select 1, 2, or 3.")
+```
 
 
