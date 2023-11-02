@@ -40,4 +40,8 @@ print(adjectives[1])
 
 print(f"I went on a walk with {adjectives[1]} friend")
 ```
-  
+
+### Level 3
+#### To add a level of complexity, you should create a 3 different stories, about different topics. You can have the user pick which story they want to use based on the topics. 
+
+
