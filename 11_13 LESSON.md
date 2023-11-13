@@ -7,4 +7,4 @@
 * Please find at least 5 words that you do not know. See if you can find a definition for those words that makes sense to you. If the definitions seem to complicated, try a different word! Sometimes finding definitions of new coding terms can get complicated. This is normal. Being able to find definitions on your own is a powerful skill. 
 * Finally, if you had to pick to pick one of these 12 examples as your job, which one would you choose? Why?
 
-#### Please upload your document to Canvas when you are finished. See you Wednesday! 
+#### Please put your answers in the Google Form on Canvas under "announcements." See you Wednesday. 
