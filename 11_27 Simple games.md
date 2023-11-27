@@ -1,4 +1,6 @@
 ## Happy Monday! Today we will be experimenting with a couple of basics that will introduce us to games. First, we will play with a hangman game. 
+## For a little inspiration: Try this game out. Made on Replit! https://slingshot-game.muhammad-sjc.repl.co/
+
 ### Try out the game below. We will go through each piece to see what the code is doing at every step. 
 ```
 import random, os, time
