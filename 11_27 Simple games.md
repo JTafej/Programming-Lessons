@@ -1,7 +1,7 @@
 ## Happy Monday! Today we will be experimenting with a couple of basics that will introduce us to games. First, we will play with a hangman game. 
 ## For a little inspiration: Try this game out. Made on Replit! https://slingshot-game.muhammad-sjc.repl.co/
 
-### Try out the game below. We will go through each piece to see what the code is doing at every step. 
+### Try out the game below. You have seen most of the code involved in this first game already. Try to read through the code to understand what's going on. 
 ```
 import random, os, time
 
@@ -49,203 +49,278 @@ while True:
     print(f"Only {lives} left")
 ```
 
-### This next game is a bit more exciting. It is like the game "Snake," but you are the food! Take a minute to read through this code and try to interpret some of it if you can.
+### That's cool and all, but we can introduce PyGame, and really start to make something cool. Today we will focus on just exploring some games. You may need to comment out the first few lines to get the games to run. 
+
 ```
-from blessed import Terminal
-import random
-import copy
-from collections import deque
+"""Cannon, hitting targets with projectiles.
 
-term = Terminal()
-UP = term.KEY_UP
-RIGHT = term.KEY_RIGHT
-LEFT = term.KEY_LEFT
-DOWN = term.KEY_DOWN
-DIRECTIONS = [LEFT, UP, RIGHT, DOWN]
-MOVEMENT_MAP = {LEFT: [0, -1], UP: [-1, 0], RIGHT: [0, 1], DOWN: [1, 0]}
-WASD_MAP = {'w': UP, 'a': LEFT, 's': DOWN, 'd': RIGHT, 'W': UP, 'A': LEFT, 'S': DOWN, 'D': RIGHT}
-dead = False
+Exercises
 
-# -------CONFIG--------
-BORDER = '⬜️'
-BODY = '🟩'
-HEAD = '🟥'
-SPACE = '　'
-APPLE = '🍎'
+1. Keep score by counting target hits.
+2. Vary the effect of gravity.
+3. Apply gravity to the targets.
+4. Change the speed of the ball.
+"""
 
-# initial snake position
-snake = deque([[6, 5], [6, 4], [6, 3]])
-# initial food position
-food = [5, 10]
-h, w = 10, 15 # height, width
-score = 0
-# initial speed
-speed = 3
-# max speed
-MAX_SPEED = 6
+from random import randrange
+from turtle import *
 
-# N1 and N2 represents the snake's movement frequency.
-# The snake will only move N1 out of N2 turns.
-N1 = 1
-N2 = 2
+from freegames import vector
 
-# M represents how often the snake will grow.
-# The snake will grow every M turns.
-M = 9
-# -----CONFIG END------
+ball = vector(-200, -200)
+speed = vector(0, 0)
+targets = []
 
-messages = ['you can do it!', "don't get eaten!", 'run, forest, run!', "where there's a will, there's a way", "you can beat it!", "outsmart the snake!"]
-message = None
 
-def list_empty_spaces(world, space):
-  result = []
-  for i in range(len(world)):
-    for j in range(len(world[i])):
-      if world[i][j] == space:
-        result.append([i, j])
-  return result
+def tap(x, y):
+    """Respond to screen tap."""
+    if not inside(ball):
+        ball.x = -199
+        ball.y = -199
+        speed.x = (x + 200) / 25
+        speed.y = (y + 200) / 25
 
-with term.cbreak(), term.hidden_cursor():
-  # clear the screen
-  print(term.home + term.clear)
-  
-  # Initialize the world
-  world = [[SPACE] * w for _ in range(h)]
-  for i in range(h):
-    world[i][0] = BORDER
-    world[i][-1] = BORDER
-  for j in range(w):
-    world[0][j] = BORDER
-    world[-1][j] = BORDER
-  for s in snake:
-    world[s[0]][s[1]] = BODY
-  head = snake[0]
-  world[head[0]][head[1]] = HEAD
-  world[food[0]][food[1]] = APPLE
-  for row in world:
-    print(''.join(row))
-  print('use arrow keys or WASD to move!')
-  print("this time, you're the food 😱\n")
-  print('I recommend expanding the terminal window')
-  print('so the game has enough space to run')
 
-  val = ''
-  moving = False
-  turn = 0
+def inside(xy):
+    """Return True if xy within screen."""
+    return -200 < xy.x < 200 and -200 < xy.y < 200
 
-  while True:
-    val = term.inkey(timeout=1/speed)
-    if val.code in DIRECTIONS or val in WASD_MAP.keys():
-      moving = True
-    if not moving:
-      continue
 
-    # let the snake decide where to move
-    head = snake[0]
-    y_diff = food[0] - head[0]
-    x_diff = food[1] - head[1]
+def draw():
+    """Draw ball and targets."""
+    clear()
 
-    preferred_move = None
-    if abs(y_diff) > abs(x_diff):
-      if y_diff <= 0:
-        preferred_move = UP
-      else:
-        preferred_move = DOWN
-    else:
-      if x_diff >= 0:
-        preferred_move = RIGHT
-      else:
-        preferred_move = LEFT
-    
-    # check if the preferred move is valid
-    # if not, check if all the the other moves are valid
-    preferred_moves = [preferred_move] + list(DIRECTIONS)
-    
-    next_move = None
-    for move in preferred_moves:
-      movement = MOVEMENT_MAP[move]
-      head_copy = copy.copy(head)
-      head_copy[0] += movement[0]
-      head_copy[1] += movement[1]
-      heading = world[head_copy[0]][head_copy[1]]
-      if heading == BORDER:
-        continue
-      elif heading == BODY:
-        # For every M turns, the snake grows
-        # longer. So, the head can move to the
-        # tail's location only if turn % M != 0
-        if head_copy == snake[-1] and turn % M != 0:
-          next_move = head_copy
-          break
+    for target in targets:
+        goto(target.x, target.y)
+        dot(20, 'blue')
+
+    if inside(ball):
+        goto(ball.x, ball.y)
+        dot(6, 'red')
+
+    update()
+
+
+def move():
+    """Move ball and targets."""
+    if randrange(40) == 0:
+        y = randrange(-150, 150)
+        target = vector(200, y)
+        targets.append(target)
+
+    for target in targets:
+        target.x -= 0.5
+
+    if inside(ball):
+        speed.y -= 0.35
+        ball.move(speed)
+
+    dupe = targets.copy()
+    targets.clear()
+
+    for target in dupe:
+        if abs(target - ball) > 13:
+            targets.append(target)
+
+    draw()
+
+    for target in targets:
+        if not inside(target):
+            return
+
+    ontimer(move, 50)
+
+
+setup(420, 420, 370, 0)
+hideturtle()
+up()
+tracer(False)
+onscreenclick(tap)
+move()
+done()
+```
+
+### You may be familiar with this one.  
+```
+# ""Pacman, classic arcade game.
+
+# Exercises
+
+# 1. Change the board.
+# 2. Change the number of ghosts.
+# 3. Change where pacman starts.
+# 4. Make the ghosts faster/slower.
+# 5. Make the ghosts smarter.
+# """
+
+from random import choice
+from turtle import *
+
+from freegames import floor, vector
+
+state = {'score': 0}
+path = Turtle(visible=False)
+writer = Turtle(visible=False)
+aim = vector(5, 0)
+pacman = vector(-40, -80)
+ghosts = [
+    [vector(-180, 160), vector(5, 0)],
+    [vector(-180, -160), vector(0, 5)],
+    [vector(100, 160), vector(0, -5)],
+    [vector(100, -160), vector(-5, 0)],
+]
+# fmt: off
+tiles = [
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0,
+    0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0,
+    0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0,
+    0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0,
+    0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0,
+    0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,
+    0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0,
+    0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0,
+    0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0,
+    0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0,
+    0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0,
+    0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
+    0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0,
+    0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0,
+    0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0,
+    0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
+    0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+]
+# fmt: on
+
+
+def square(x, y):
+    """Draw square using path at (x, y)."""
+    path.up()
+    path.goto(x, y)
+    path.down()
+    path.begin_fill()
+
+    for count in range(4):
+        path.forward(20)
+        path.left(90)
+
+    path.end_fill()
+
+
+def offset(point):
+    """Return offset of point in tiles."""
+    x = (floor(point.x, 20) + 200) / 20
+    y = (180 - floor(point.y, 20)) / 20
+    index = int(x + y * 20)
+    return index
+
+
+def valid(point):
+    """Return True if point is valid in tiles."""
+    index = offset(point)
+
+    if tiles[index] == 0:
+        return False
+
+    index = offset(point + 19)
+
+    if tiles[index] == 0:
+        return False
+
+    return point.x % 20 == 0 or point.y % 20 == 0
+
+
+def world():
+    """Draw world using path."""
+    bgcolor('black')
+    path.color('blue')
+
+    for index in range(len(tiles)):
+        tile = tiles[index]
+
+        if tile > 0:
+            x = (index % 20) * 20 - 200
+            y = 180 - (index // 20) * 20
+            square(x, y)
+
+            if tile == 1:
+                path.up()
+                path.goto(x + 10, y + 10)
+                path.dot(2, 'white')
+
+
+def move():
+    """Move pacman and all ghosts."""
+    writer.undo()
+    writer.write(state['score'])
+
+    clear()
+
+    if valid(pacman + aim):
+        pacman.move(aim)
+
+    index = offset(pacman)
+
+    if tiles[index] == 1:
+        tiles[index] = 2
+        state['score'] += 1
+        x = (index % 20) * 20 - 200
+        y = 180 - (index // 20) * 20
+        square(x, y)
+
+    up()
+    goto(pacman.x + 10, pacman.y + 10)
+    dot(20, 'yellow')
+
+    for point, course in ghosts:
+        if valid(point + course):
+            point.move(course)
         else:
-          continue
-      else:
-        next_move = head_copy
-        break
-    
-    if next_move is None:
-      break
-    
-    turn += 1
-    # snake only moves N - 1 out of N turns.
-    # before the snake moves, clear the current
-    # location of the food.
-    world[food[0]][food[1]] = SPACE
-    if turn % N2 < N1:
-      snake.appendleft(next_move)
-      # for every M turns or so, the snake grows longer and everything becomes faster
-      world[head[0]][head[1]] = BODY
-      if turn % M != 0:
-        speed = min(speed * 1.05, MAX_SPEED)
-        tail = snake.pop()
-        world[tail[0]][tail[1]] = SPACE
-      world[next_move[0]][next_move[1]] = HEAD
+            options = [
+                vector(5, 0),
+                vector(-5, 0),
+                vector(0, 5),
+                vector(0, -5),
+            ]
+            plan = choice(options)
+            course.x = plan.x
+            course.y = plan.y
 
-    # And then the food moves
-    food_copy = copy.copy(food)
-    # First, encode the movement in food_copy
-    if val.code in DIRECTIONS or val in WASD_MAP.keys():
-      direction = None
-      if val in WASD_MAP.keys():
-        direction = WASD_MAP[val]
-      else:
-        direction = val.code
-      movement = MOVEMENT_MAP[direction]
-      food_copy[0] += movement[0]
-      food_copy[1] += movement[1]
+        up()
+        goto(point.x + 10, point.y + 10)
+        dot(20, 'red')
 
-    # Check where the food is heading
-    food_heading = world[food_copy[0]][food_copy[1]]
-    # You only die if the snake's head eats you. The body won't do any damage.
-    if food_heading == HEAD:
-      dead = True
-    # Only move the food if you're trying to
-    # move to an empty space.
-    if food_heading == SPACE:
-      food = food_copy
-    # If somehow the food's current location
-    # overlaps with the snake's body, then
-    # the apple's dead.
-    if world[food[0]][food[1]] == BODY or world[food[0]][food[1]] == HEAD:
-      dead = True
-    if not dead:
-      world[food[0]][food[1]] = APPLE
+    update()
 
-    print(term.move_yx(0, 0))
-    for row in world:
-      print(''.join(row))
-    score = len(snake) - 3
-    print(f'score: {turn} - size: {len(snake)}' + term.clear_eol)
-    if dead:
-      break
-    if turn % 50 == 0:
-      message = random.choice(messages)
-    if message:
-      print(message + term.clear_eos)
-    print(term.clear_eos, end='')
+    for point, course in ghosts:
+        if abs(pacman - point) < 20:
+            return
 
-if dead:
-  print('you were eaten by the snake!' + term.clear_eos)
-else:
-  print('woah you won!! how did you do it?!' + term.clear_eos)
+    ontimer(move, 100)
+
+
+def change(x, y):
+    """Change pacman aim if valid."""
+    if valid(pacman + vector(x, y)):
+        aim.x = x
+        aim.y = y
+
+
+setup(420, 420, 370, 0)
+hideturtle()
+tracer(False)
+writer.goto(160, 160)
+writer.color('white')
+writer.write(state['score'])
+listen()
+onkey(lambda: change(5, 0), 'Right')
+onkey(lambda: change(-5, 0), 'Left')
+onkey(lambda: change(0, 5), 'Up')
+onkey(lambda: change(0, -5), 'Down')
+world()
+move()
+done()
 ```
+### Now that you have experimented with these games, try a few more from this website! https://grantjenks.com/docs/freegames/ 
