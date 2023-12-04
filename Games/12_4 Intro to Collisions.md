@@ -1,5 +1,5 @@
-## Today we will continue building the games we started last week. 
-
+## Today we will continue building the game we started last week. 
+You will see below that the code is similar to what we did last week, with a few key spots added. 
 ```
 import pygame
 
@@ -56,3 +56,28 @@ while run:
 
 pygame.quit()
 ```
+
+### This code defines a function for printing the text that appears after a collision, it also tells the program what font to use. 
+```
+def draw_text(text, font, text_col, x, y):
+  img = font.render(text, True, text_col)
+  screen.blit(img, (x, y))
+
+text_font = pygame.font.SysFont("Helvetica", 30)
+```
+
+### This code tells the program if we a collision has happened. (In this case the only two objects are wall1 and player.) When a collision happens, the color of the long rectangle is changed, and the text "YOU LOSE" gets printed on the screen. 
+```
+if player.colliderect(wall1):
+  Col = Col2
+  draw_text("YOU LOSE", text_font, (255, 255, 255), 220, 150)
+
+```
+
+
+
+
+
+
+
+
