@@ -20,3 +20,16 @@ while True:
     pygame.display.flip()
 pygame.quit()
 ```
+
+### Here is an example of how you may add a timer to your program. This first part will go before your game loop begins:
+start_time = currenttime.time()
+
+### This next part will go after the user has completed their goal. For example, when they reach the final block. 
+```
+total_time = currenttime.time() - start_time
+time_text = f"Your total time was: {int(total_time)} seconds"
+    draw_text(time_text, text_font, (2, 255, 50), 100, 300)
+    pygame.display.update() 
+```
+
+### Create a new game using this information! You can also use everything we have learned this week about rectangles and collisions. 
