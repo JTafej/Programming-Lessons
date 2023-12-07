@@ -32,4 +32,4 @@ time_text = f"Your total time was: {int(total_time)} seconds"
     pygame.display.update() 
 ```
 
-### Create a new game using this information! You can also use everything we have learned this week about rectangles and collisions. 
+### Create a new game using this information! You can also use everything we have learned this week about rectangles and collisions. You will create this game in groups today. 
