@@ -4,6 +4,7 @@
 
 ### You may need a refresher on how the code works for these basic games. Take a look at the two pieces of code below. See if you are able to combine them to create a snowy scene to move your rectangle through. 
 
+## Using Sprite to create rectangles: 
 ```
 import random
 import pygame
@@ -91,4 +92,46 @@ while exit:
 
 pygame.quit()
 
+```
+## Using lists and loops to create snowfall: 
+```
+import pygame
+import random
+pygame.init()
+
+WHITE = [255, 255, 255]
+GREEN = [0,255,0]
+SIZE = [400, 400]
+
+screen = pygame.display.set_mode(SIZE)
+pygame.display.set_caption("Programming World of GFG")
+
+snowFall = []
+for i in range(50):
+  x = random.randrange(0, 400)
+  y = random.randrange(0, 400)
+  snowFall.append([x, y])
+
+clock = pygame.time.Clock()
+done = False
+while not done:
+
+  for event in pygame.event.get(): 
+    if event.type == pygame.QUIT: 
+      done = True
+  screen.fill(WHITE)
+  for i in range(len(snowFall)):
+    pygame.draw.circle(screen, GREEN, snowFall[i], 2)
+
+    snowFall[i][1] += 1
+    if snowFall[i][1] > 400:
+      y = random.randrange(-50, -10)
+      snowFall[i][1] = y
+
+      x = random.randrange(0, 400)
+      snowFall[i][0] = x
+
+  pygame.display.flip()
+  clock.tick(20)
+pygame.quit()
 ```
