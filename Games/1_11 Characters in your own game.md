@@ -93,4 +93,84 @@ while True:
 
 ```
 ### This final piece of code includes enemies. Your challenge for today is to create two enemies and one character using piskelapp.com and included them in the game below! Spend some time making the characters cool.
+#### New additions in this code are the following: 
+-a list of enemies to store information about each enemy
+-The create_enemy function generates a new enemy with a random image, position at the top of the screen, and a random speed.
+-The game loop updates the positions of existing enemies, creates new enemies randomly, and checks for collisions with the player.
+-If an enemy reaches the bottom of the screen, it is removed from the list, and a new enemy is created.
+-If the player collides with any enemy, a simple "Game Over!" message is printed, and the game exits. You may want to implement a more sophisticated game over mechanism.
+
+```
+import pygame
+import sys
+import random
+
+# Initialize Pygame
+pygame.init()
+
+# Set up display
+width, height = 800, 600
+screen = pygame.display.set_mode((width, height))
+pygame.display.set_caption("Pygame with Player Image and Enemies")
+
+# Set up player
+player_image = pygame.image.load("player.png")
+player_rect = player_image.get_rect()
+player_rect.topleft = (width // 2 - player_rect.width // 2, height - 2 * player_rect.height)
+player_speed = 5
+
+# Set up enemies
+enemy_images = [pygame.image.load("enemy1.png"), pygame.image.load("enemy2.png")]
+enemies = []
+
+def create_enemy():
+    enemy_image = random.choice(enemy_images)
+    enemy_rect = enemy_image.get_rect()
+    enemy_rect.topleft = (random.randint(0, width - enemy_rect.width), 0)
+    return {"image": enemy_image, "rect": enemy_rect, "speed": random.uniform(1, 3)}
+
+# Game loop
+clock = pygame.time.Clock()
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_LEFT] and player_rect.left > 0:
+        player_rect.x -= player_speed
+    if keys[pygame.K_RIGHT] and player_rect.right < width:
+        player_rect.x += player_speed
+
+    # Move enemies
+    for enemy in enemies:
+        enemy["rect"].y += enemy["speed"]
+        if enemy["rect"].top > height:
+            enemies.remove(enemy)
+            enemies.append(create_enemy())
+
+    # Create new enemies
+    if random.randint(0, 100) < 5:
+        enemies.append(create_enemy())
+
+    # Check for collisions with player
+    for enemy in enemies:
+        if player_rect.colliderect(enemy["rect"]):
+            print("Game Over!")  # You might want to implement a more sophisticated game over mechanism
+            pygame.quit()
+            sys.exit()
+
+    # Update display
+    screen.fill((255, 255, 255))
+    screen.blit(player_image, player_rect)
+
+    for enemy in enemies:
+        screen.blit(enemy["image"], enemy["rect"])
+
+    pygame.display.flip()
+
+    # Set the frames per second
+    clock.tick(60)
+```
 
