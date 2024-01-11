@@ -1,0 +1,96 @@
+## We spent the last couple of days exploring someone elses code for the game Space Invaders.
+### You may have some time at the end of the period today to continue working on that, but we should also talk about how you can include characters of your own in your game. 
+
+### The code below sets up a window, initializes Pygame, and creates a simple game loop. The player can be moved left and right using the arrow keys. The game loop continuously checks for user input, updates the player's position, and redraws the screen. You have seen this before. 
+```
+import pygame
+import sys
+
+# Initialize Pygame
+pygame.init()
+
+# Set up display
+width, height = 800, 600
+screen = pygame.display.set_mode((width, height))
+pygame.display.set_caption("Simple Pygame Example")
+
+# Set up colors
+white = (255, 255, 255)
+blue = (0, 0, 255)
+
+# Set up player
+player_size = 50
+player_x = width // 2 - player_size // 2
+player_y = height - 2 * player_size
+player_speed = 5
+
+# Game loop
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_LEFT] and player_x > 0:
+        player_x -= player_speed
+    if keys[pygame.K_RIGHT] and player_x < width - player_size:
+        player_x += player_speed
+
+    # Update display
+    screen.fill(white)
+    pygame.draw.rect(screen, blue, (player_x, player_y, player_size, player_size))
+
+    pygame.display.flip()
+
+    # Set the frames per second
+    pygame.time.Clock().tick(60)
+```
+### Now, this is great and all, but we have done this already. Lets say we want to introduce a character of our own! We have to do 3 additional things. Notice the differences in the code below. 
+- 1.) We load the player image using pygame.image.load("player.png").
+- 2.) We create a rectangle (player_rect) that represents the player's position and size.
+- 3.) The blit method is used to draw the player image onto the screen at the position specified by player_rect.
+  
+```
+import pygame
+import sys
+
+# Initialize Pygame
+pygame.init()
+
+# Set up display
+width, height = 800, 600
+screen = pygame.display.set_mode((width, height))
+pygame.display.set_caption("Pygame with Player Image")
+
+# Set up player
+player_image = pygame.image.load("player.png")
+player_rect = player_image.get_rect()
+player_rect.topleft = (width // 2 - player_rect.width // 2, height - 2 * player_rect.height)
+player_speed = 5
+
+# Game loop
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_LEFT] and player_rect.left > 0:
+        player_rect.x -= player_speed
+    if keys[pygame.K_RIGHT] and player_rect.right < width:
+        player_rect.x += player_speed
+
+    # Update display
+    screen.fill((255, 255, 255))
+    screen.blit(player_image, player_rect)
+
+    pygame.display.flip()
+
+    # Set the frames per second
+    pygame.time.Clock().tick(60)
+
+```
+### This final piece of code includes enemies. Your challenge for today is to create two enemies and one character using piskelapp.com and included them in the game below! Spend some time making the characters cool.
+
