@@ -99,6 +99,7 @@ while True:
 -The game loop updates the positions of existing enemies, creates new enemies randomly, and checks for collisions with the player.
 -If an enemy reaches the bottom of the screen, it is removed from the list, and a new enemy is created.
 -If the player collides with any enemy, a simple "Game Over!" message is printed, and the game exits. You may want to implement a more sophisticated game over mechanism.
+-The game also now includes a timer and a score based on the time the user survives. 
 
 ```
 import pygame
@@ -128,8 +129,12 @@ def create_enemy():
     enemy_rect = enemy_image.get_rect()
     enemy_rect.topleft = (random.randint(0, width - enemy_rect.width), 0)
     return {"image": enemy_image, "rect": enemy_rect, "speed": random.uniform(1, 3)}
-# Set up timer
+
+# Set up timer and score display
 start_time = pygame.time.get_ticks()
+score_font = pygame.font.Font(None, 36)
+score = 0
+
 
 # Game loop
 clock = pygame.time.Clock()
@@ -151,6 +156,7 @@ while True:
         if enemy["rect"].top > height:
             enemies.remove(enemy)
             enemies.append(create_enemy())
+            score += 1 
 
     # Create new enemies
     if random.randint(0, 100) < 5:
@@ -171,6 +177,9 @@ while True:
 
     for enemy in enemies:
         screen.blit(enemy["image"], enemy["rect"])
+ # Display the score
+    score_text = score_font.render(f"Score: {score}", True, (0, 0, 0))
+    screen.blit(score_text, (10, 10))
 
     pygame.display.flip()
 
