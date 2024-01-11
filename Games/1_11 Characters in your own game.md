@@ -128,6 +128,8 @@ def create_enemy():
     enemy_rect = enemy_image.get_rect()
     enemy_rect.topleft = (random.randint(0, width - enemy_rect.width), 0)
     return {"image": enemy_image, "rect": enemy_rect, "speed": random.uniform(1, 3)}
+# Set up timer
+start_time = pygame.time.get_ticks()
 
 # Game loop
 clock = pygame.time.Clock()
@@ -157,7 +159,9 @@ while True:
     # Check for collisions with player
     for enemy in enemies:
         if player_rect.colliderect(enemy["rect"]):
-            print("Game Over!")  # You might want to implement a more sophisticated game over mechanism
+            end_time = pygame.time.get_ticks()
+            duration = (end_time - start_time) / 1000  # Convert milliseconds to seconds
+            print(f"Game Over! You survived for {duration:.2f} seconds.")
             pygame.quit()
             sys.exit()
 
