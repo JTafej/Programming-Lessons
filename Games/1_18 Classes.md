@@ -24,7 +24,7 @@ class Dog:
 ```
 jacob_dog = Dog('Indy', 3)
 ```
-### If you add this to the program, it will create an instance of a dog, whose name is Indy, and whose age is 3. To check this, we can add the following lines: 
+### If you add this to the program, it will create an instance(AKA an OBJECT) of a dog, whose name is Indy, and whose age is 3. To check this, we can add the following lines: 
 ```
 print(f"Jacob's dog's name is {jacob_dog.name}.")
 print(f"Jacob's dog is {jacob_dog.age} years old.")
@@ -37,7 +37,7 @@ jacob_dog.sit()
 # To have the dog roll over
 jacob_dog.roll_over()
 ```
-### Try creating a new instance for your own dog. Call it my_dog. If you do not have a dog, make up a name and age of a dog! After you have created the new instance, try running the following code:
+### Try creating a new instance(OBJECT) for your own dog. Call it my_dog. If you do not have a dog, make up a name and age of a dog! After you have created the new instance, try running the following code:
 ```
 print(f"Jacob's dog's name is {jacob_dog.name}.")
 print(f"Jacob's dog is {jacob_dog.age} years old.")
@@ -46,7 +46,7 @@ print(f"My dog's name is {my_dog.name}.")
 print(f"My dog is {my_dog.age} years old.")
 ```
 
-### Hopefully you are starting to notice the power of classes. We can create as many instances (Or different dogs) as we want!!!
+### Hopefully you are starting to notice the power of classes. We can create as many instances (Or different dogs/objects) as we want!!!
 
 ### Your challenge. Use the class Dog in a program that prints the dogs name and age, and then asks the user if the dog should sit or roll over. If the user types something else, the program should say "(dogs name) doesn't know that trick!"
 
