@@ -244,7 +244,7 @@ class BankAccount:
 ```
 
 ### Challenge 5:
-* This is a "bonus challenge." Try to use a classes to create a video game with two rectangles that can be moved indepently of eachother. For example, one uses WASD keys and one uses the arrows. Alternatively, you could use classes within a game to create a bunch of enemies. (Refer to the Space Invaders code https://www.mrmichaelsclass.com/python-programming/python-projects/space-invaders if you'd like). 
+* This is a "bonus challenge." Try to use a class to create a video game with two rectangles that can be moved indepently of eachother. For example, one uses WASD keys and one uses the arrows. Alternatively, you could use classes within a game to create a bunch of enemies. (Refer to the Space Invaders code https://www.mrmichaelsclass.com/python-programming/python-projects/space-invaders if you'd like). 
 
 
 #### Possible solution for Challenge 4: 
