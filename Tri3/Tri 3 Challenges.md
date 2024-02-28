@@ -12,3 +12,9 @@
 ## Both challenges are due today, don't use ChatGPT!
 
 
+## UPDATE FOR 2/28. Today, you will create both of these projects again, as a group of 2 or 3. You will have the full period to enhance your current projects, and should be ready to answer the following questions at the end of the period: 
+* How was your project improved from Monday?
+* How is it the same?
+* What is one new thing you learned about today?
+
+### Note, improving your project may require you to look some things up on the internet. If you are having understanding any resources, just ask! 
