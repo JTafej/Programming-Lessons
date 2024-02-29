@@ -60,11 +60,27 @@ employees = {
 John_dept=employees["John"]["department"]
 print(John_dept)
 ```
+#### Okay, now we are getting somewhere! For a challenge today:
+* Create a dictionary to store movie information (title, director, year) for 10 movies. 
+* Ask the user to input a movie title and display its director and year if it exists in the dictionary.
+* Allow the user to add a movie to the dictionary if it is not already part of it.
 
-
-
-
-
+<details>
+<summary>How do you check if a movie is already in the dictionary?</summary>
+<br>
+           
+           students = {
+               "Alice": {"ID": 123, "grades": [80, 90, 75]},
+               "Bob": {"ID": 456, "grades": [95, 85, 92]}
+           }
+           
+           Check if "Alice" is present as a key
+           if "Alice" in students:
+               print("Alice is a student.")
+           else:
+               print("Alice is not a student.")
+           
+</details>
 
 
 
