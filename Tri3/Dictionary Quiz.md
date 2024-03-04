@@ -1,3 +1,21 @@
+### Warm-up: With a partner, write out code for the following programs by hand. 
+#### First, write a program that will collected 2 numbers from a user, and then tell the user which of the two numbers is larger. 
+<details>
+<summary>Hint</summary>
+<br>
+You'll need an if and elif statement. Remember how to compare numbers with an inequality?
+</details>
+
+
+#### Next, write a program that will collect 100 numbers from a user, and then tell them which number is the maxiumum!
+
+<details>
+<summary>Hint</summary>
+<br>
+You will need a loop, I think for loops are easier for this situation. You will also need to list. Finally, you will need to use max(listname) to find the maximum value in the list. 
+</details>
+
+
 ### Dictionary-based Quiz Game:
 #### 1. Setup:
 
