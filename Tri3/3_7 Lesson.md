@@ -21,16 +21,16 @@ fruitslist = ['apple', 'banana', 'orange', 'pear']
 ```
 # Example: Store information about students in a list of dictionaries
 students = [
-    {'name': 'Alice', 'score': 85},
-    {'name': 'Bob', 'score': 92},
-    {'name': 'Charlie', 'score': 78}
+    {'name1': 'Alice', 'score': 85},
+    {'name2': 'Bob', 'score': 92},
+    {'name3': 'Charlie', 'score': 78}
 ]
 ```
 
 #### If we want to access or adjust items that are in a dictionary, within a list, we can use the following: 
 ```
 # Example: Accessing and manipulating data in a list of dictionaries
-print(students[0]['name'])      # Output: 'Alice'
+print(students[0]['name1'])      # Output: 'Alice'
 students[1]['score'] = 95       # Update Bob's score
 students.append({'name': 'David', 'score': 88})  # Add a new student
 ```
