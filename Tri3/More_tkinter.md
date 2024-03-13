@@ -50,6 +50,30 @@ myButton.pack()
 
 root.mainloop()
 ```
+### Now we can do whatever we'd like with the inputs! For example, let's say hello if Jacob enters his name, and say "I don't know you!" if someone else tries to use the program. 
+```
+import tkinter as tk
+root = tk.Tk()
+
+e = tk.Entry(root, width=20)
+e.pack()
+
+def myClick():
+  dontknow = tk.Label(root,text ="I don't know you!")
+  myLabel = tk.Label(root, text=("Hello " + e.get()))
+  if e.get() == "Jacob":
+    myLabel.pack()
+  else:
+    dontknow.pack()
+  
+
+myButton = tk.Button(root, text="Enter your name, then click me", command=myClick)
+myButton.pack()
+
+root.mainloop()
+```
+### Your challenge for today is to use the code above to create a short, 3 question quiz for users. If they answer correctly, tell them so. If they are wrong, let them know. You should use 3 separate entry boxes. 
+
 
 
 
