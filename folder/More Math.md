@@ -1,4 +1,4 @@
-### First thing today we are going to run through this code and decide what the program is doing. Afterwards, you will alter the code. 
+### First thing today we are going to run through this code and decide what the program is doing. Afterwards, you will alter the code.
 
 ```
 print("POSITIVITY MACHINE!!😁", "\n",
@@ -96,16 +96,22 @@ It should do the following:
 2. Ask what *percent* they want to tip. (Typically 15-25%)
 3. Figure out how much **myBill + TIP** will be.
 
-
-HINT:  Divide the tip percentage by 100, and then multiple that number by **myBill**. This will give you       the **TIP**. Then do ***myBill + TIP*** 
+<details>
+<summary>Hint </summary>
+<br>
+  Divide the tip percentage by 100, and then multiple that number by **myBill**. This will give you       the **TIP**. Then do ***myBill + TIP*** 
+  
+</details>
 
 4. Ask the user how many people there are, and divide it evenly.
 
-Use the code from before to get started: 
+Use the code from before to get started. Submit a screenshot of your working code and an output to canvas. You must include comments in your program that explain what each piece is doing. 
 
 ```
+# Ask user for the total cost and the number of people: 
 myBill = float(input("What was the bill?: "))
 numberOfPeople = int(input("How many people?: "))
+#Calculate amount, and tell user. 
 answer = myBill / numberOfPeople
 print("You all owe", answer)
 ```
