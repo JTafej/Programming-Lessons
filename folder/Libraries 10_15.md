@@ -38,8 +38,17 @@ for i in range(1,1000):
   print(i)
   os.system("clear")
 ```
+### We can also use the time library to slow down the loop. Check it out. time.sleep(TIME INTERVAL IN SECONDS) will pause the loop after the print statement before moving it onto the next piece. 
+```
+import os, time
+for i in range(1,1000):
+  print(i)
+  time.sleep(0.1)
+  os.system("clear")
+ ```
 ### Amazing! This is a very powerful tool, as it can clear our results and make the program a lot more pleasant for the user. 
-#### What is the problem here?
+
+#### What is the problem below?
 ```
 import os
 adding = 4 + 3
@@ -62,7 +71,7 @@ squared = 5**2
 print(squared)
 os.system("clear")
 ```
-### Well, the program is doing the calculations, but they are getting deleted instantly! If we use the "time" library, we can see the answers just for a minute!
+### Well, the program is doing the calculations, but they are getting deleted instantly! If we use the time library, we can see the answers just for a minute!
 ```
 import os, time
 adding = 4 + 3
@@ -90,5 +99,4 @@ print(squared)
 time.sleep(1)
 os.system("clear")
 ```
-
-### Okay, now it's time for the challenge of the day. Take a program from the past, and use os.system("clear") to clean it up! If you get finished early, read some more about libraries on the link I attached! 
+### Where might the time and os libraries be usesful to you? think about your programs from the past. Can you use time and os to clean them up a bit? That is your challenge for the day. Please complete your challenge in the new sandbox for the day. If you get finished early, read some more about libraries on the link I attached! 
