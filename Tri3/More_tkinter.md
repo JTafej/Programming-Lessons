@@ -72,7 +72,8 @@ myButton.pack()
 
 root.mainloop()
 ```
-### Your challenge for today is to use the code above to create a short, 3 question quiz for users. If they answer correctly, tell them so. If they are wrong, let them know. You should use 3 separate entry boxes. 
+### Your challenge for today is to use the code above to create a short, 3 question quiz for users. If they answer correctly, tell them so. If they are wrong, let them know. You should use 3 separate entry boxes.
+#### Note: There are a lot of new terms in the code above. Be sure you understanding the meaning of each. It will make things easier when we move to more complex uses of tkinter. 
 
 
 
