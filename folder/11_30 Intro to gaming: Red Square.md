@@ -61,8 +61,8 @@ while run:
 pygame.quit()
 ```
 
-## You will notice that the character can only move to the left. (Only the a key works.) You will also notice that there is only one wall. Your task is to create a maze of walls so that the character must navigate through them. We will talk about how to stop the game when a character hits a wall next class. 
-## Please submit your replit when you are finished. You need at least 8 walls, and you must change the color of the walls and the player(Small square). 
+## You will notice that the character can only move to the left. (Only the a key works.) You will also notice that there is only one wall. Your task is to create a maze of walls so that the character must navigate through them.  
+## You need at least 8 walls, and you must change the color of the walls and the player(Small square). 
 
 
 
