@@ -1,5 +1,5 @@
 ## Today we will continue building the game we started last week. 
-You will see below that the code is similar to what we did last week, with a few key spots added. 
+You will see below that the code is similar to what we did Monday, with a few key spots added. 
 ```
 import pygame
 
@@ -73,6 +73,7 @@ if player.colliderect(wall1):
   draw_text("YOU LOSE", text_font, (255, 255, 255), 220, 150)
 
 ```
+
 
 
 
