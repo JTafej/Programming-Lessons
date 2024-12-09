@@ -2,7 +2,7 @@
 ### You may have some time at the end of the period today to continue working on that, but we should also talk about how you can include characters of your own in your game. 
 
 
-## Task 1: The first thing you need to do today is to create a "player" character and two "enemy" chracters using this website: https://www.piskelapp.com/p/create/sprite 
+## Task 1: The first thing you need to do today is to create a "player" character and two "enemy" chracters using this website: https://www.piskelapp.com/p/create/sprite I will help eveyone get started with this. Note, the code below won't work until you have your character created, downloaded, and uploaded into codeHS.
 
 
 
