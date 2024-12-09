@@ -10,7 +10,7 @@ import sys
 pygame.init()
 
 # Set up display
-width, height = 800, 600
+width, height = 600, 400
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Simple Pygame Example")
 
@@ -59,7 +59,7 @@ import sys
 pygame.init()
 
 # Set up display
-width, height = 800, 600
+width, height = 600, 400
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Pygame with Player Image")
 
@@ -110,7 +110,7 @@ import random
 pygame.init()
 
 # Set up display
-width, height = 800, 600
+width, height = 600, 400
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Pygame with Player Image and Enemies")
 
