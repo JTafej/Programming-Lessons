@@ -1,6 +1,11 @@
 ## We spent the last couple of days exploring someone elses code for the game Space Invaders.
 ### You may have some time at the end of the period today to continue working on that, but we should also talk about how you can include characters of your own in your game. 
 
+
+## Task 1: The first thing you need to do today is to create a "player" character and two "enemy" chracters using this website: https://www.piskelapp.com/p/create/sprite 
+
+
+
 ### The code below sets up a window, initializes Pygame, and creates a simple game loop. The player can be moved left and right using the arrow keys. The game loop continuously checks for user input, updates the player's position, and redraws the screen. You have seen this before. 
 ```
 import pygame
