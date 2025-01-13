@@ -20,7 +20,7 @@ dog2.bark()
 
 ```
 
-### The next thing I want to show you is how classes may be used in games. (You have already seen this in the Space Invaders game, but we had not talked about classes yet.) 
+### The next thing I want to show you is how classes may be used in games. (The following code is from a blog post about Space Invaders. Link to the full blog is below.) 
 
 #### Notice how this does the same thing we have done in many games, but we are now using classes to define the rectangle. 
 
